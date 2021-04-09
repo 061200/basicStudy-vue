@@ -14,7 +14,10 @@
         {{ todoItem.item }}
         </span>
 
-        <span class="removeBtn" @click="removeTodo(todoItem, index)">
+        <span
+          class="removeBtn"
+          @click="removeTodo(todoItem, index)"
+        >
           <i class="fas fa-minus"></i>
         </span>
       </li>

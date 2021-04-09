@@ -14,7 +14,9 @@
 
     <Modal v-if="showModal" @close="showModal = false">
       <h3 slot="header">경고!
-        <i class="fas fa-times closeModalBtn" @click="showModal = false"></i>
+        <i
+          class="fas fa-times closeModalBtn"
+          @click="showModal = false"></i>
       </h3>
       <div slot="body">무언가를 입력하세요.</div>
     </Modal>
@@ -46,7 +48,7 @@ export default {
     },
   },
   components: {
-    Modal: Modal
+    Modal,
   },
 }
 </script>
