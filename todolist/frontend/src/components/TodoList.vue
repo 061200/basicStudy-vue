@@ -26,21 +26,32 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'TodoList',
+  created () {
+    this.$http.get('/api/todos')
+    .then((res) => {
+      this.todoItems = res.data
+    })
+  },
+  data () {
+    return {
+      todoItems: []
+    }
+  },
   methods: {
     ...mapMutations({
       removeTodo: 'removeOneItem',
       toggleComplete: 'toggleOneItem',
     }),
   },
-  computed: {
-    ...mapGetters({
-      todoItems: 'storedTodoItems'
-    }),
-  }
+  // computed: {
+  //   ...mapGetters({
+  //     todoItems: 'storedTodoItems'
+  //   }),
+  // }
 }
 </script>
 
