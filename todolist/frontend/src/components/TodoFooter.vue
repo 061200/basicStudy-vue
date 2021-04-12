@@ -1,10 +1,19 @@
 <template>
-  <div class="clearAllContainer shadow">
-    <span
-      class="clearAllBtn"
-      @click="clearTodo">
-      Clear All
-      </span>
+  <div>
+    <div class="clearAllContainer shadow">
+      <span
+        class="clearAllBtn"
+        @click="clearTodo">
+        Clear All
+        </span>
+    </div>
+    <div class="clearAllContainer shadow">
+      <span
+        class="clearAllBtn"
+        @click="SaveTodo">
+        Save
+        </span>
+    </div>
   </div>
 </template>
 
@@ -16,6 +25,7 @@ export default {
   methods: {
     ...mapMutations({
       clearTodo: 'clearAllItems',
+      SaveTodo: 'saveItems',
     }),
   }
 }
@@ -28,7 +38,7 @@ export default {
   line-height: 50px;
   background-color: white;
   border-radius: 5px;
-  margin: 0 auto;
+  margin: 8px auto;
 }
 .clearAllBtn {
   font-weight: 700;

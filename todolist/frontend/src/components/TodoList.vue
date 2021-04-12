@@ -3,7 +3,7 @@
     <transition-group name="list" tag="ul">
       <li
         v-for="(todoItem, index) in this.todoItems"
-        :key="todoItem.item"
+        :key="todoItem.id"
         class="shadow"
       >
         <i class="checkBtn fas fa-check"
@@ -26,32 +26,33 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'TodoList',
-  created () {
-    this.$http.get('/api/todos')
-    .then((res) => {
-      this.todoItems = res.data
-    })
-  },
-  data () {
-    return {
-      todoItems: []
-    }
-  },
+  // created () {
+  //   this.$http.get('/api/todos')
+  //   .then((res) => {
+  //     console.log(res.data)
+  //     this.todoItems = res.data
+  //   })
+  // },
+  // data () {
+  //   return {
+  //     todoItems: []
+  //   }
+  // },
   methods: {
     ...mapMutations({
       removeTodo: 'removeOneItem',
       toggleComplete: 'toggleOneItem',
     }),
   },
-  // computed: {
-  //   ...mapGetters({
-  //     todoItems: 'storedTodoItems'
-  //   }),
-  // }
+  computed: {
+    ...mapGetters({
+      todoItems: 'storedTodoItems'
+    }),
+  }
 }
 </script>
 
